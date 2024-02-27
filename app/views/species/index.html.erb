@@ -3,7 +3,7 @@
     <% @species.each do |specie| %>
         <li>
             <h3>
-                <%= specie.species_name %>
+                <%= link_to specie.species_name, species_path(specie) %>
             </h3>
         </li>
     <% end %>

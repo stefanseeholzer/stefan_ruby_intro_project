@@ -3,7 +3,7 @@
     <% @planets.each do |planet| %>
         <li>
             <h3>
-                <%= planet.planet_name %>
+                <%= link_to planet.planet_name, planet_path(planet) %>
             </h3>
         </li>
     <% end %>

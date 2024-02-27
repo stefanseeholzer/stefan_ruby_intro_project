@@ -1,0 +1,48 @@
+<%= stylesheet_link_tag 'application' %>
+<h1>About</h1>
+
+<body>
+    <div>
+        <p>
+            I am going to use data from a Star Wars dataset found on Kaggle.com (https://www.kaggle.com/datasets/jsphyg/star-wars?resource=download). This data set contains information about Star Wars Universe such as its planets, characters, species, vehicles(not going to use) and starships(not going to use). The data is in CSV format.
+        </p>
+    </div>
+    <div>
+        <div>
+            <h3>Planets:</h3>
+            <p>
+                This data contains information about the Planets in Star Wars, and I will be using columns such as the planet's name, diameter, climate, gravity, terrain, surface water and population. This data will be put inside a table called Planets.
+            </p>
+        </div>
+        <div>
+            <h3>Characters:</h3>
+            <p>
+                This data contains information about the Characters in Star Wars, and I will be using columns such as their name, height, mass, hair color, skin color, eye color, birth year/age, gender, homeworld and species. This data will be put inside a table called Characters.
+            </p>
+        </div>
+        <div>
+            <h3>Species:</h3>
+            <p>
+                This data contains information about the Species in Star Wars, and I will be using columns such as the sepecies' name, classification, average height, skin color, hair color, eye color, average lifespan, language and homeworld. This data will be put inside a table called Species.
+            </p>
+        </div>
+    </div>
+    <div>
+        <p>
+            The Planets can have zero or many Characters.<br>
+            The Planets can have zero or many Species.<br>
+            The Characters can have 1 Planet(homeworld, NA if unknown).<br>
+            The Characters can have 1 Species (NA if unknown).<br>
+            The Species can have zero or many Characters.<br>
+            The Species can have 1 Planet(homeworld, NA if unknown).
+        </p>
+        <p>
+            Planets PK = name<br>
+            Characters PK = name<br>
+            Species PK = name
+        </p>
+    </div>
+    <div>
+        <img src="/ruby_erd.png" alt="erd for project data">
+    </div>
+</body>

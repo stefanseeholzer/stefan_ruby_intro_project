@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'species', to: 'species#index'
+  get 'planets', to: 'planets#index'
+  get 'characters', to: 'characters#index'
+  get '/about', to: 'about#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -7,5 +11,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get '/about', to: 'about#index'
 end

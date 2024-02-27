@@ -7,5 +7,5 @@
     <p>Eye Color: <%= @specie.eye_color %></p>
     <p>Average Lifespan: <%= @specie.average_lifespan %></p>
     <p>Language: <%= @specie.language %></p>
-    <p>Homeworld: <%= @specie.planet.planet_name %></p>
+    <p>Homeworld: <%= link_to @specie.planet.planet_name, planet_path(@specie.planet) %></p>
 </div>

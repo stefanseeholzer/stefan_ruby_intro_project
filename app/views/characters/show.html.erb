@@ -7,6 +7,6 @@
     <p>Eye Color: <%= @character.eye_color %></p>
     <p>Birth Year: <%= @character.birth_year %></p>
     <p>Gender: <%= @character.gender %></p>
-    <p>Homeworld: <%= @character.planet.planet_name %></p>
-    <p>Species: <%= @character.species.species_name %></p>
+    <p>Homeworld: <%= link_to @character.planet.planet_name, planet_path(@character.planet) %></p>
+    <p>Species: <%= link_to @character.species.species_name, species_path(@character.species) %></p>
 </div>

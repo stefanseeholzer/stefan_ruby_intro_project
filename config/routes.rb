@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :characters, only: [:index, :show]
+  resources :planets, only: [:index, :show]
   get 'species', to: 'species#index'
-  get 'planets', to: 'planets#index'
-  get 'characters', to: 'characters#index'
+  get 'species/:id', to: 'species#show'
   get '/about', to: 'about#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

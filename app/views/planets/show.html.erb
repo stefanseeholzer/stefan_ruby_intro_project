@@ -6,4 +6,9 @@
     <p>Terrain: <%= @planet.terrain %></p>
     <p>Surface Water: <%= @planet.surface_water %></p>
     <p>Population: <%= @planet.population %></p>
+    <p>Characters from <%= @planet.planet_name %>:
+        <% @planet.characters.each do |character| %>
+        <%= character.character_name %>
+        <% end %>
+    </p>
 </div>

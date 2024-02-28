@@ -1,5 +1,5 @@
 class Planet < ApplicationRecord
-    has_many :characters
+    has_many :characters, foreign_key: 'homeworld', primary_key: 'planet_name'
     has_many :species
 
     validates :planet_name, presence: true, uniqueness: true

@@ -13,47 +13,56 @@
   <body>
     <header>
       <%= render 'shared/menu' %>
-      <% if current_page?(action: 'index') && !current_page?(controller: 'about') %>
-        <form action="<%= request.original_url %>" method="get">
-          <input type="text" name="query" placeholder="Search" value="<%= params[:query] %>">
+        <div class="top-level-search">
+          <% if current_page?(action: 'index') && !current_page?(controller: 'about') %>
+            <div class="top-level-search">
+              <form action="<%= request.original_url %>" method="get" class="search-form">
+                <div class="control">
+                  <input class="input" name="query" type="text" placeholder="Search" value="<%= params[:query] %>">
+                </div>
+                  <% if current_page?(controller: 'characters') %>
+                    <select class="select" name="homeworld" style="height: 200px; overflow-y: auto;">
+                      <option value="">- search by homeworld -</option>
+                      <% @homeworlds.each do |homeworld| %>
+                        <option value="<%= homeworld %>" <%= 'selected' if params[:homeworld] == homeworld %>>
+                          <%= homeworld %>
+                        </option>
+                      <% end %>
+                    </select>
+                    <select class="select" name="species" style="height: 200px; overflow-y: auto;">
+                      <option value="">- search by species -</option>
+                      <% @species.each do |specie| %>
+                        <option value="<%= specie %>" <%= 'selected' if params[:species] == specie %>>
+                          <%= specie %>
+                        </option>
+                      <% end %>
+                    </select>
+                  <% end %>
 
-          <% if current_page?(controller: 'characters') %>
-            <select name="homeworld" style="height: 200px; overflow-y: auto;">
-              <option value="">- search by homeworld -</option>
-              <% @homeworlds.each do |homeworld| %>
-                <option value="<%= homeworld %>" <%= 'selected' if params[:homeworld] == homeworld %>>
-                  <%= homeworld %>
-                </option>
-              <% end %>
-            </select>
-            <select name="species" style="height: 200px; overflow-y: auto;">
-              <option value="">- search by species -</option>
-              <% @species.each do |specie| %>
-                <option value="<%= specie %>" <%= 'selected' if params[:species] == specie %>>
-                  <%= specie %>
-                </option>
-              <% end %>
-            </select>
+                  <% if current_page?(controller: 'species') %>
+                    <select class="select" name="homeworld" style="height: 200px; overflow-y: auto;">
+                      <option value="">- search by homeworld -</option>
+                      <% @homeworlds.each do |homeworld| %>
+                        <option value="<%= homeworld %>" <%= 'selected' if params[:homeworld] == homeworld %>>
+                          <%= homeworld %>
+                        </option>
+                      <% end %>
+                    </select>
+                  <% end %>
+                  <button type="submit" class="button is-primary" style="background-color: rgb(41, 33, 33);;">
+                    Search
+                  </button>
+                </form>
+              </div>
+              <div>
+                <form action="<%= request.original_url %>" method="get">
+                    <button type="submit" class="button is-secondary">
+                      Reset
+                    </button>
+                </form>
+              </div>
           <% end %>
-
-          <% if current_page?(controller: 'species') %>
-            <select name="homeworld" style="height: 200px; overflow-y: auto;">
-              <option value="">- search by homeworld -</option>
-              <% @homeworlds.each do |homeworld| %>
-                <option value="<%= homeworld %>" <%= 'selected' if params[:homeworld] == homeworld %>>
-                  <%= homeworld %>
-                </option>
-              <% end %>
-            </select>
-          <% end %>
-
-          <input type="submit" value="Search">
-        </form>
-
-        <form action="<%= request.original_url %>" method="get">
-          <input type="submit" value="Reset">
-        </form>
-      <% end %>
+        </div>
     </header>
     <%= yield %>
   </body>

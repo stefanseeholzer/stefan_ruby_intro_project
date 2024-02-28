@@ -1,20 +1,92 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import "bulma";
 
- img{
-    max-width: 100%;
-    height: auto;
- }
+html{
+background-image: url("vader.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+body{
+   text-align: center;
+   font-size: medium;
+   color: rgb(58, 13, 13);
+}
+
+.navbar-menu{
+   width: 100%;
+}
+
+img{
+   max-width: 100%;
+   height: auto;
+}
+
+.navbar{
+padding: 10px;
+background-color: rgb(41, 33, 33);
+}
+
+.navbar-start{
+width: 100%;
+display: flex;
+justify-content: space-around;
+}
+
+.navbar-item{
+margin-right: 15px;
+padding: 5px;
+background-color: rgb(241, 218, 218);
+border-radius: 5px;
+}
+
+.input{
+   width: 100%;
+}
+
+.control{
+   width: 100%;
+}
+
+a{
+   color: rgb(95, 0, 0);
+   background-color: rgb(243, 189, 189);
+   border-radius: 5px;
+}
+
+.select{
+   margin: 5px;
+   height: 20px;
+   max-height: 25px;
+}
+
+.search-form{
+   display: flex;
+   width: 100%;
+}
+
+.top-level-search{
+   display: flex;
+   width: 100%;
+}
+
+button{
+   margin-right: 5px;
+}
+
+h1{
+   color: rgb(95, 0, 0);
+   font-size: 50px;
+   text-align: center;
+   font-weight: 900;
+}
+
+h3{
+   font-size: 30px;
+   font-weight: 800;
+   margin-top: 10px;
+}
+
+a:hover{
+   background-color: rgb(95, 0, 0);
+   color: rgb(243, 189, 189);
+}

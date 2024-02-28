@@ -12,6 +12,8 @@ class CharactersController < ApplicationController
         @species << @sn
       end
     end
+    @homeworlds = @homeworlds.sort
+    @species = @species.sort
 
     if params[:query].present? || params[:homeworld].present? || params[:species].present?
       @characters = @characters.where(

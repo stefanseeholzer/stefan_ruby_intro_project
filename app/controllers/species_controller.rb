@@ -7,7 +7,8 @@ class SpeciesController < ApplicationController
     @species.each do |s|
       @homeworlds << s.planet.planet_name
     end
-
+    @homeworlds = @homeworlds.sort
+    
     if params[:query].present? || params[:homeworld].present?
       @species = @species.where(
         "species_name LIKE ? AND homeworld LIKE ?",

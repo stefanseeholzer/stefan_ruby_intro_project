@@ -8,5 +8,9 @@
     <p>Birth Year: <%= @character.birth_year %></p>
     <p>Gender: <%= @character.gender %></p>
     <p>Homeworld: <%= link_to @character.planet.planet_name, planet_path(@character.planet) %></p>
-    <p>Species: <%= link_to @character.species.species_name, species_path(@character.species) %></p>
+    <% if @character.species %>
+        <p>Species: <%= link_to @character.species.species_name, species_path(@character.species) %></p>
+    <% else %>
+        <p>Species: Unknown</p>
+    <% end %>
 </div>

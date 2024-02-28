@@ -2,6 +2,10 @@ source "https://rubygems.org"
 
 ruby "3.1.4"
 
+#Bulma
+gem 'sassc-rails'
+gem 'bulma'
+
 # API grab
 gem 'httparty'
 

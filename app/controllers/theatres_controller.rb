@@ -1,6 +1,8 @@
 class TheatresController < ApplicationController
   def index
-    @theatres = Theatre.all.page(params[:page]).per(10)
+    @theatres = Theatre.all
+    @theatres = @theatres.where("name LIKE ?", "%#{params[:query]}%") if params[:query].present?
+    @theatres = @theatres.page(params[:page]).per(10)
   end
 
   def show

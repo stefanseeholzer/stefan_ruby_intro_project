@@ -13,6 +13,47 @@
   <body>
     <header>
       <%= render 'shared/menu' %>
+      <% if current_page?(action: 'index') %>
+        <form action="<%= request.original_url %>" method="get">
+          <input type="text" name="query" placeholder="Search" value="<%= params[:query] %>">
+
+          <% if current_page?(controller: 'characters') %>
+            <select name="homeworld" style="height: 200px; overflow-y: auto;">
+              <option value="">- search by homeworld -</option>
+              <% @homeworlds.each do |homeworld| %>
+                <option value="<%= homeworld %>" <%= 'selected' if params[:homeworld] == homeworld %>>
+                  <%= homeworld %>
+                </option>
+              <% end %>
+            </select>
+            <select name="species" style="height: 200px; overflow-y: auto;">
+              <option value="">- search by species -</option>
+              <% @species.each do |specie| %>
+                <option value="<%= specie %>" <%= 'selected' if params[:species] == specie %>>
+                  <%= specie %>
+                </option>
+              <% end %>
+            </select>
+          <% end %>
+
+          <% if current_page?(controller: 'species') %>
+            <select name="homeworld" style="height: 200px; overflow-y: auto;">
+              <option value="">- search by homeworld -</option>
+              <% @homeworlds.each do |homeworld| %>
+                <option value="<%= homeworld %>" <%= 'selected' if params[:homeworld] == homeworld %>>
+                  <%= homeworld %>
+                </option>
+              <% end %>
+            </select>
+          <% end %>
+
+          <input type="submit" value="Search">
+        </form>
+
+        <form action="<%= request.original_url %>" method="get">
+          <input type="submit" value="Reset">
+        </form>
+      <% end %>
     </header>
     <%= yield %>
   </body>

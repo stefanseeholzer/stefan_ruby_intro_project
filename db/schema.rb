@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_13_001358) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_28_011134) do
   create_table "characters", force: :cascade do |t|
     t.string "character_name"
     t.float "height"
@@ -48,6 +48,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_001358) do
     t.integer "average_lifespan"
     t.string "language"
     t.string "homeworld"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "theatres", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "province"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

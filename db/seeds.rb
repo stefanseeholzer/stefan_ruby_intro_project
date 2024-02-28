@@ -1,8 +1,10 @@
 require 'csv'
 
+
 Planet.delete_all
 Species.delete_all
 Character.delete_all
+Theatre.delete_all
 
 # Planets
 filename = Rails.root.join("db/data/planets.csv")
@@ -93,3 +95,21 @@ characters.each do |c|
     end
 end
 puts "Created #{Character.count} Characters"
+
+
+# Theatres
+get_theatres = TheatreService.new
+theatres_data = get_theatres.theatres
+
+theatres_data.each do |td|
+    Theatre.create(
+        name: td['name'],
+        address: td['address1'],
+        city: td['city'],
+        province: td['provinceCode'],
+        latitude: td['latitude'],
+        longitude: td['longitude'],
+        )
+end
+
+puts "Created #{Theatre.count} theatres"

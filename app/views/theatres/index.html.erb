@@ -1,0 +1,11 @@
+<h1>Theatres</h1>
+<%= paginate @theatres %>
+<ul>
+    <% @theatres.each do |theatre| %>
+        <li>
+            <h3>
+                <%= link_to theatre.name, theatre_path(theatre) %>
+            </h3>
+        </li>
+    <% end %>
+</ul>

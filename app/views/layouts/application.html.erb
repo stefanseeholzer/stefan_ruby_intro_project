@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>StefanRubyIntroProject</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,7 +13,7 @@
   <body>
     <header>
       <%= render 'shared/menu' %>
-      <% if current_page?(action: 'index') %>
+      <% if current_page?(action: 'index') && !current_page?(controller: 'about') %>
         <form action="<%= request.original_url %>" method="get">
           <input type="text" name="query" placeholder="Search" value="<%= params[:query] %>">
 

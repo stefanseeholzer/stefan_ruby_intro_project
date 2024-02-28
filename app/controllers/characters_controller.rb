@@ -1,8 +1,6 @@
 class CharactersController < ApplicationController
   def index
-    @characters = Character.all
-    @characters = Character.includes(:planet).all
-    @characters = Character.includes(:species).all
+    @characters = Character.includes(:planet, :species).page(params[:page]).per(10)
   end
 
   def show

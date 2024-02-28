@@ -1,8 +1,6 @@
 class SpeciesController < ApplicationController
   def index
-    @species = Species.all
-    @species = Species.includes(:character).all
-    @species = Species.includes(:planet).all
+    @species = Species.includes(:planet, :characters).page(params[:page]).per(10)
   end
 
   def show

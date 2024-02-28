@@ -8,4 +8,9 @@
     <p>Average Lifespan: <%= @specie.average_lifespan %></p>
     <p>Language: <%= @specie.language %></p>
     <p>Homeworld: <%= link_to @specie.planet.planet_name, planet_path(@specie.planet) %></p>
+    <p>Characters who are <%= @specie.species_name %>:
+        <% @specie.characters.each_with_index do |character, index| %>
+            <%= link_to character.character_name, character_path(character) %><% if index < @specie.characters.size-1 %>,<% end %>
+        <% end %>
+    </p>
 </div>

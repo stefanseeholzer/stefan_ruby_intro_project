@@ -6,9 +6,14 @@
     <p>Terrain: <%= @planet.terrain %></p>
     <p>Surface Water: <%= @planet.surface_water %></p>
     <p>Population: <%= @planet.population %></p>
+    <p>Species from <%= @planet.planet_name %>:
+        <% @planet.species.each_with_index do |specie, index| %>
+            <%= link_to specie.species_name, species_path(specie) %><% if index < @planet.species.size-1 %>,<% end %>
+        <% end %>
+    </p>
     <p>Characters from <%= @planet.planet_name %>:
-        <% @planet.characters.each do |character| %>
-        <%= character.character_name %>
+        <% @planet.characters.each_with_index do |character, index| %>
+            <%= link_to character.character_name, character_path(character) %><% if index < @planet.characters.size-1 %>,<% end %>
         <% end %>
     </p>
 </div>
